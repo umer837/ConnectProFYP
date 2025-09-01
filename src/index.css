@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import AOS Styles */
+@import 'aos/dist/aos.css';
+
+/* ConnectPro Design System - Professional & Clean */
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 20%;
+
+    /* Navigation */
+    --nav-background: 220 10% 25%; /* Dark Gray */
+    --nav-foreground: 0 0% 95%;
+
+    /* Cards & Components */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 20%;
+
+    /* Form Elements */
+    --input: 220 10% 96%;
+    --input-border: 220 15% 85%;
+    --input-foreground: 220 15% 20%;
+
+    /* CTAs & Actions */
+    --cta-primary: 0 75% 55%; /* Red CTA */
+    --cta-primary-foreground: 0 0% 100%;
+    --cta-primary-hover: 0 75% 50%;
+
+    /* Neutral Tones */
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
+    --border: 220 15% 90%;
+
+    /* Admin Dashboard */
+    --admin-sidebar: 220 20% 16%;
+    --admin-sidebar-foreground: 0 0% 100%;
+    --admin-sidebar-active: 0 75% 55%;
+
+    /* Metrics & Status */
+    --success: 120 50% 45%;
+    --warning: 45 90% 55%;
+    --info: 210 75% 55%;
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 1px 2px 0 hsl(220 20% 14% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(220 20% 14% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(220 20% 14% / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--cta-primary) / 0.2);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--cta-primary)), hsl(0 85% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--muted)), hsl(var(--background)));
+    --gradient-hero: linear-gradient(135deg, hsl(220 15% 25% / 0.95), hsl(220 20% 30% / 0.85));
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Professional Transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .transition-fast {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .transition-slow {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  /* Glassmorphism Effects */
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 transition-smooth hover:bg-white/15 hover:border-white/30;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg transition-smooth hover:bg-white/10 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Professional Hover Effects */
+  .hover-lift {
+    @apply transition-smooth hover:-translate-y-2 hover:shadow-lg;
+  }
+
+  .hover-scale {
+    @apply transition-fast hover:scale-105;
+  }
+
+  .hover-scale-sm {
+    @apply transition-fast hover:scale-102;
+  }
+
+  .hover-glow-subtle {
+    @apply transition-smooth hover:shadow-lg hover:shadow-cta-primary/20;
+  }
+
+  .hover-slide-right {
+    @apply transition-smooth hover:translate-x-1;
+  }
+
+  /* Enhanced Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-cta-primary to-cta-primary-hover text-cta-primary-foreground px-4 py-2 rounded-lg font-medium shadow-md hover:shadow-lg transform hover:scale-105 transition-smooth hover:shadow-cta-primary/30;
+  }
+
+  .btn-secondary {
+    @apply bg-admin-sidebar text-admin-sidebar-foreground px-4 py-2 rounded-lg font-medium shadow-md hover:shadow-lg hover:bg-admin-sidebar/90 transition-smooth;
+  }
+
+  .btn-ghost {
+    @apply border border-border bg-transparent hover:bg-muted text-foreground px-4 py-2 rounded-lg font-medium transition-smooth hover:border-cta-primary/50 hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply border-2 border-cta-primary bg-transparent text-cta-primary px-4 py-2 rounded-lg font-medium hover:bg-cta-primary hover:text-white transition-smooth hover:shadow-lg;
+  }
+
+  /* Card Enhancements */
+  .card-elevated {
+    @apply bg-card rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-smooth border border-border/50 hover:border-border;
+  }
+
+  .card-feature {
+    @apply bg-gradient-to-br from-card to-muted/30 rounded-lg p-4 shadow-md hover:shadow-lg transform hover:-translate-y-2 transition-smooth border border-border/50 hover:border-cta-primary/20;
+  }
+
+  .card-interactive {
+    @apply bg-card rounded-lg shadow-sm hover:shadow-md transition-smooth border border-border/50 hover:border-cta-primary/30 cursor-pointer;
+  }
+
+  /* Sidebar Enhancements */
+  .sidebar-item {
+    @apply transition-smooth hover:bg-admin-sidebar-foreground/10 hover:translate-x-1 rounded-lg;
+  }
+
+  .sidebar-item-active {
+    @apply bg-cta-primary/20 border-r-2 border-cta-primary text-white;
+  }
+
+  /* Animation Classes */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .fade-in-up.aos-animate {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .scale-in {
+    @apply transform scale-95 opacity-0 transition-all duration-500 ease-out;
+  }
+
+  .scale-in.aos-animate {
+    @apply scale-100 opacity-100;
+  }
+
+  /* Interactive Elements */
+  .story-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-cta-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Loading Animations */
+  .pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Hero Background */
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(var(--cta-primary) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, hsl(var(--info) / 0.1) 0%, transparent 50%);
+  }
+}
